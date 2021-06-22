@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+
+<!--Yaw, Pitch, Roll is in radians -->
+<!--Important! : Format in tf_echo is RPY, in static_transform_publisher is YPR -->
+
+<!--Static transform from top_plate_front_link to checkerboard. Use translation and rotation matrix manually measured from checkerboard  -->
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_plate_checker" args="0.731 0.131 0.037 3.14 0 0 top_plate_front_link checkerboard 100">
+	</node>
+
+<!--Static transform from checkerboard to pylon_camera. Use transform inverse translation and rotation -->
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_checker_pylon" args="0.277 0.104 0.511 1.575 -0.012 -2.796 checkerboard pylon_camera 100">
+	</node>
+
+<!--Print transform from top_plate_front_link to pylon_camera -->
+	<node pkg="tf" type="tf_echo" name="tf_echo_plate_pylon" args="top_plate_front_link pylon_camera" output="screen">
+	</node>
+</launch>
+
+
+
