@@ -1,3 +1,3 @@
 Bachelor thesis
 
-ROS based implementation for camera and calibration
+ROS based implementation for camera calibration
